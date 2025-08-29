@@ -1,7 +1,7 @@
 # my-cli-project
 
 #### A simple CLI application for managing a car rental system.
-#### Built eith with Python, SQLAlchemy ORM,and Alembic for database migrations.
+#### Built with with Python, SQLAlchemy ORM,and Alembic for database migrations.
 #### By **Samuel Kiplangat**
 
 ## Description
