@@ -3,7 +3,7 @@ from lib.db.models import Base, Car, Customer, Rental
 from lib.db.session import engine
 import datetime
 
-# Create tables
+# tables
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 

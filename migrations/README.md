@@ -1,4 +1,4 @@
-# React Blog App
+# my-cli-project
 
 #### A simple CLI application for managing a car rental system.
 #### Built eith with Python, SQLAlchemy ORM,and Alembic for database migrations.

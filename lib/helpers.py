@@ -56,7 +56,7 @@ def rent_car(customer_id):
         Session.add(rental)
         Session.commit()
 
-        # Show tuple for clarity
+        # Showing tuple
         rental_tuple = (rental.id, car.make, car.model)
         print("Car rented successfully! Rental record (id, make, model):", rental_tuple)
     else:
