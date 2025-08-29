@@ -19,15 +19,15 @@ This is a cli application for managing  a rental system which is meant to keep t
 - browsing available cars
 - adding new cars
 
-<!-- ## How to Use
-
-
+## How to Use
 
 ### Requirements
 
-- A computer, tablet, or phone
-- Access to the internet
-- A modern web browser
+- A computer or a laptop
+- A code editor with a terminal
+- virtual environment
+
+
 
 
 
@@ -38,14 +38,14 @@ If you want to run the project locally, you'll need:
 - Node.js installed on your computer
 - Basic understanding of React JS
 - Code editor (VS Code recommended)
-- Terminal/Command Line -->
+- Terminal/Command Line
 
 #### Installation Process
 
 1. Clone this repository using:
 
    ```bash
-   git clone git@github.com:dennis-kiboi/react-blog.git
+   git clone git@github.com:Bett-debug/my-cli-project.git
    ```
 
    or by downloading a ZIP file of the code.
@@ -53,48 +53,113 @@ If you want to run the project locally, you'll need:
 2. Navigate to the project directory:
 
    ```bash
-   cd react-blog
+   cd my-cli-project
    ```
 
 3. Install the required dependencies:
 
    ```bash
-   npm install
+   pipenv install
+   pipenv shell
    ```
 
-4. Run the development server:
-
+4. Run Alembic migrations:
+5. Initialize the database and apply migrations.
    ```bash
-   npm run dev
+   alembic upgrade head
    ```
 
-5. Open your browser and visit `http://localhost:5173`
+6. run the cli:
+    ```bash
+    pipenv run python -m lib.cli
+    ```
+
+## Database schema 
+
+![database schema](image-1.png)
 
 ## Technologies Used
 
-- React JS
-- Vite
-- CSS3
-- JavaScript (ES6)
+- Python
+- SQLAlchemy ORM
+- Alembic
+- Database migrations
 
-## Related Repositories
+## The project uses SQLAlchemy with the following tables:
 
-### Backend API
+### Customer
 
-- Repository: [Blog API Repository](https://github.com/dennis-kiboi/blog-app-sdf-ft11-json-server)
-- Deployed API: [Live API URL](https://blog-app-sdf-ft11-json-server.onrender.com)
+- id (Primary Key)
+- username (Unique)
+- password
+- rentals (Relationship with Rental)
+
+### Car
+
+- id (Primary Key)
+- make
+- model
+- available (Boolean)
+
+### Rental
+
+- id (Primary Key)
+- customer_id (Foreign Key → Customer)
+- car_id (Foreign Key → Car)
+- rental_date
+- return_date
+
+
+## Usage Guide
+
+When you run the CLI, you’ll see a menu like this:
+
+
+--- Car Rental CLI ---
+1. Register
+2. Login
+3. Browse Cars
+4. Rent a Car
+5. Return a Car
+6. Add car
+7. Exit
+
+
+### Example Workflows:
+
+Register → create a new customer account.
+Login → authenticate with your username.
+Browse Cars → view all available cars.
+Rent a Car → select a car to rent (availability is updated).
+Return a Car → mark a car as returned.
+Add car → add a car to the db
+
+
+### Depandancie I used
+
+SQLAlchemy
+→ ORM for database modeling
+
+Alembic
+→ database migrations
+
+Tabulate
+→ for printing nice tables in the cli
+
+
+
 
 ## Support and Contact Details
 
 If you have any questions, suggestions, or need assistance, please contact:
 
-- Email: <dennis.kiboi@moringaschool.com>
+- Email: <samuel.kiplangat@student.moringaschool.com>
 
 ## License
 
 MIT License
 
-Copyright &copy; 2024 Dennis Kiboi
+Copyright &copy; 2025 Samuel Kiplangat
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
