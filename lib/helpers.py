@@ -3,22 +3,20 @@ from lib.db.models import Car, Customer, Rental
 from tabulate import tabulate
 from datetime import datetime
 from lib.db.session import Session
-
+from lib.db.models import Car, Customer, Rental
 def register():
-    name = input("Enter your name: ")
-    email = input("Enter your email: ")
+    session = Session()
 
-    customer = Customer(name=name, email=email)
-    Session.add(customer)
-    Session.commit()
+    username = input("Enter username: ")
+    password = input("Enter password: ")
 
-    
-    customer_dict = {
-        "id": customer.id,
-        "name": customer.name,
-        "email": customer.email
-    }
-    print("Registered successfully! User details:", customer_dict)
+    new_customer = Customer(username=username, password=password)
+    session.add(new_customer)
+    session.commit()
+
+    print(f"Registration successful! Welcome, {username}")
+    session.close()
+
 
 
 def login(username, password):
@@ -75,6 +73,38 @@ def return_car(rental_id):
         print(f" Car {rental.car.make} {rental.car.model} returned successfully!")
     session.close()
 
+def view_history():
+    session = Session()
 
+    try:
+        customer_id = int(input("Enter your Customer ID: "))
 
+        rentals = (
+            session.query(Rental)
+            .filter_by(customer_id=customer_id)
+            .all()
+        )
 
+        if not rentals:
+            print(" No rental history found for this customer.")
+        else:
+            table_data = []
+            for rental in rentals:
+                car = rental.car 
+                table_data.append([
+                    car.make,
+                    car.model,
+                    car.year,
+                    str(rental.rental_date),
+                    str(rental.return_date) if rental.return_date else "Not returned yet"
+                ])
+
+            headers = ["Make", "Model", "Year", "Rental Date", "Return Date"]
+            print("\n Rental History:")
+            print(tabulate(table_data, headers=headers, tablefmt="grid"))
+
+    except ValueError:
+        print(" Invalid input! Please enter a valid numeric Customer ID.")
+
+    finally:
+        session.close()

@@ -1,4 +1,4 @@
-from lib.helpers import register, login, browse_cars, rent_car, return_car
+from lib.helpers import register, login, browse_cars, rent_car, return_car,view_history
 from lib.db.session import Session
 from lib.db.models import Car
 
@@ -14,14 +14,13 @@ def main():
         print("5. Return Car")
         print("6. Add Car")
         print("7. Exit")
+        print("8.view Rentals")
         
 
         choice = input("Enter choice: ")
 
         if choice == "1":
-            username = input("Enter username: ")
-            password = input("Enter password: ")
-            register(username, password)
+            register()
 
         elif choice == "2":
             username = input("Enter username: ")
@@ -56,6 +55,9 @@ def main():
 
         elif choice == "7":
             print("Goodbye!")
+
+        elif choice == "8":
+            view_history()    
 
             break
 
