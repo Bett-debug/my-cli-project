@@ -18,6 +18,7 @@ This is a cli application for managing  a rental system which is meant to keep t
 - logging in 
 - browsing available cars
 - adding new cars
+- viewing rental history
 
 ## How to Use
 
@@ -133,6 +134,7 @@ Browse Cars → view all available cars.
 Rent a Car → select a car to rent (availability is updated).
 Return a Car → mark a car as returned.
 Add car → add a car to the db
+view history → you can view a customers rental history.
 
 
 ### Depandancie I used
