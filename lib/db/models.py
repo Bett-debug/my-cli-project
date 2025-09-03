@@ -13,6 +13,7 @@ class Car(Base):
     model = Column(String, nullable=False)
     year = Column(Integer, nullable=False)
     available = Column(Boolean, default=True)
+    color = Column(String, nullable=True)
 
     rentals = relationship("Rental", back_populates="car")
 

@@ -95,6 +95,7 @@ def view_history():
                     car.make,
                     car.model,
                     car.year,
+                    car.color,
                     str(rental.rental_date),
                     str(rental.return_date) if rental.return_date else "Not returned yet"
                 ])

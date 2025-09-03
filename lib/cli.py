@@ -43,14 +43,15 @@ def main():
             make = input("Enter car make: ")
             model = input("Enter car model: ")
             year = int(input("Enter year: "))  
+            color = input("Enter color: ")
 
             session = Session()
-            car = Car(make=make, model=model, year=year, available=1)
+            car = Car(make=make, model=model, year=year, available=1 , color=color)
             session.add(car)
             session.commit()
             session.close() 
 
-            print(f"Car {make} {model} added successfully!") 
+            print(f"Car {make} {model}  added successfully!") 
             
 
         elif choice == "7":
