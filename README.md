@@ -70,6 +70,11 @@ If you want to run the project locally, you'll need:
    alembic upgrade head
    ```
 
+6. Insert seed data with 
+   ```bash
+   pipenv run python -m lib.db.seed
+   ```
+
 6. run the cli:
     ```bash
     pipenv run python -m lib.cli
