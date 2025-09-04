@@ -19,9 +19,9 @@ customers = [
 
 
 cars = [
-    Car(make="Toyota", model="Corolla", year=2020, available=True),
-    Car(make="Honda", model="Civic", year=2019, available=True),
-    Car(make="Ford", model="Mustang", year=2021, available=True)
+    Car(make="Toyota", model="Corolla", year=2020, available=True ,color="Red"),
+    Car(make="Honda", model="Civic", year=2019, available=True ,color="Blue"),
+    Car(make="Ford", model="Mustang", year=2021, available=True ,color="Black")
 ]
 
 

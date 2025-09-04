@@ -14,6 +14,7 @@ class Car(Base):
     year = Column(Integer, nullable=False)
     available = Column(Boolean, default=True)
     color = Column(String, nullable=True)
+    
 
     rentals = relationship("Rental", back_populates="car")
 
@@ -50,4 +51,4 @@ class Rental(Base):
 
 
 from lib.db.session import engine
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)
